@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_11_224102) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.string "status", default: "public"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_11_224102) do
     t.bigint "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.string "status", default: "public"
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
