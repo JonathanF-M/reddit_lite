@@ -7,6 +7,14 @@
         <%= form.label :body %>
         <%= form.text_area :body %>
     </p>
+    <!-- 
+        The selector is not broken out into a partial because the elements are differnt
+        and the default value is different, because comments aren't edited
+    -->
+    <p>
+        <%= form.label :status %><br>
+        <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+    </p>
     <p>
         <%= form.submit %>
     </p>
