@@ -1,5 +1,5 @@
-class Article < ApplicationRecord
-  include Visible
+class Post < ApplicationRecord
+  # include Visible
 
   has_many :comments, dependent: :destroy
 
