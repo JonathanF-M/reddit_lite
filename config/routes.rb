@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  devise_for :users
   root "posts#index"
-  resources :communities do
-    resources :posts do
-      resources :comments
-    end
+  devise_for :users
+  resources :communities
+  resources :posts do
+    resources :comments
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
