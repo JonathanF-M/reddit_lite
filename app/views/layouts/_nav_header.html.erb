@@ -24,7 +24,9 @@
                 </ul>
             </div>
         <% else %>
-            <%= button_to "Log In", new_user_session_path, class: "btn rounded-5", id: "navLogIn" %>
+            <button type="button" class="btn rounded-5" id="navLogIn" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Log In
+            </button>
             <div class="nav-item dropdown" id="settingsMenu">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-three-dots"></i>
