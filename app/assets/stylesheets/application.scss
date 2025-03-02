@@ -10,3 +10,7 @@
 #navLogIn:hover{
     background-color: #FF4500 !important;
 }
+.floatingLabel:after{
+	--bs-bg-opacity: 1;
+	background-color: rgba(var(--bs-secondary-bg-rgb),var(--bs-bg-opacity)) !important;
+}
