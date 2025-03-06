@@ -7,7 +7,7 @@
       <div class="modal-body">
         <h1 class="modal-title fs-4 fw-bold text-center mb-3" id="loginModalLabel">Log In</h1>
 
-        <%= form_for(devise_resource, as: devise_resource_name, url: session_path(devise_resource_name)) do |f| %>
+        <%= form_for(devise_resource, as: devise_resource_name, url: session_path(devise_resource_name), html: {id: "login-modal-form", class: "d-flex flex-column"}) do |f| %>
           <div class="form-floating">
             <%= f.email_field :email, autofocus: true, class: "form-control rounded-4 bg-body-secondary", placeholder: "name@example.com" %>
             <%= f.label :email, class: "text-secondary floatingLabel" %><br />
@@ -30,13 +30,13 @@
               <%= link_to "Sign up", new_registration_path(devise_resource_name) %><br />
             </div>
           <% end %>
-
-          <div class="modal-footer">
-            <div class="actions">
-              <%= f.submit "Log in" %>
-            </div>
-          </div>
         <% end %>
+
+      </div>
+      <div class="modal-footer d-flex">
+        <button type="submit" class="flex-grow-1 orangeButton btn rounded-5" onclick="document.getElementById('login-modal-form').submit();">
+          Log in
+        </button>
       </div>
     </div>
   </div>
