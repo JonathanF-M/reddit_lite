@@ -1,14 +1,16 @@
 <%= form_with model: post, html: {class: "mx-3"} do |form| %>
-    <div class="form-floating">
-      <%= form.text_field :title, autofocus: true, class: "form-control rounded-4", placeholder: "Title" %>
-      <%= form.label :title, class: "text-secondary" %><br />
-    </div>
+<%= form.select :community_id, Community.order(:name).map { |community| [community.name, community.id] }, { prompt: "Select a community" }, { class: "form-select rounded-4" } %>
 
-    <div>
-      <%= form.text_area :body, autofocus: true, class: "form-control rounded-4 mb-2", placeholder: "Body", style: "min-height: 150px;" %>
-    </div>
+  <div class="form-floating">
+    <%= form.text_field :title, autofocus: true, class: "form-control rounded-4 mt-4", placeholder: "Title" %>
+    <%= form.label :title, class: "text-secondary" %><br />
+  </div>
 
-    <div class="d-flex justify-content-end">
-      <%= form.submit "Post", class: "btn btn-primary rounded-5" %>
-    </div>
+  <div>
+    <%= form.text_area :body, autofocus: true, class: "form-control rounded-4 mb-2", placeholder: "Body", style: "min-height: 150px;" %>
+  </div>
+
+  <div class="d-flex justify-content-end">
+    <%= form.submit "Post", class: "btn btn-primary rounded-5" %>
+  </div>
 <% end %>
