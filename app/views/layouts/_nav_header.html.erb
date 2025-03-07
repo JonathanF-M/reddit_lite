@@ -3,16 +3,16 @@
         <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
             <i class="bi bi-list"></i>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <%= image_tag( asset_path("svg/Reddit_Icon_FullColor.svg"), width: 32, height: 32) %>
         </a>
         <form class="d-flex flex-grow-1" role="search">
             <input class="form-control me-2 overflow-x-hidden" type="search" placeholder="Search" aria-label="Search">
         </form>
         <% if current_user.present? %>
-            <button class="btn" type="button" id="createPost">
+            <%= link_to new_post_path, class: "btn", id: "createPost" do %>
                 <i class="bi bi-plus-lg"></i> Create
-            </button>
+            <% end %>
             <div class="nav-item dropdown" id="userMenu">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-person-circle"></i>

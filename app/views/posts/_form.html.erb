@@ -1,21 +1,14 @@
-<%= form_with model: post do |form| %>
-    <div>
-        <%= form.label :title %><br>
-        <%= form.text_field :title %>
-        <% post.errors.full_messages_for(:title).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
+<%= form_with model: post, html: {class: "mx-3"} do |form| %>
+    <div class="form-floating">
+      <%= form.text_field :title, autofocus: true, class: "form-control rounded-4", placeholder: "Title" %>
+      <%= form.label :title, class: "text-secondary" %><br />
     </div>
 
     <div>
-        <%= form.label :body %><br>
-        <%= form.text_area :body %>
-        <% post.errors.full_messages_for(:body).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
+      <%= form.text_area :body, autofocus: true, class: "form-control rounded-4 mb-2", placeholder: "Body", style: "min-height: 150px;" %>
     </div>
 
-    <div>
-        <%= form.submit %>
+    <div class="d-flex justify-content-end">
+      <%= form.submit "Post", class: "btn btn-primary rounded-5" %>
     </div>
 <% end %>
