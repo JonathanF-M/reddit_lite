@@ -1,5 +1,5 @@
 <%= form_with model: post, html: {class: "mx-3"} do |form| %>
-<%= form.select :community_id, Community.order(:name).map { |community| [community.name, community.id] }, { prompt: "Select a community" }, { class: "form-select rounded-4" } %>
+<%= form.select :community_id, Community.order(:community_name).map { |community| [community.community_name, community.id] }, { prompt: "Select a community" }, { class: "form-select rounded-4" } %>
 
   <div class="form-floating">
     <%= form.text_field :title, autofocus: true, class: "form-control rounded-4 mt-4", placeholder: "Title" %>
