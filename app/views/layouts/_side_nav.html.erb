@@ -66,6 +66,12 @@
                 <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body list-group p-0">
                         <a href="#" class="list-group-item list-group-item-action">...</a>
+                        <% if current_user %>
+                            <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#createCommunityModal">
+                                <i class="bi bi-plus-lg"></i>
+                                <span>Create a community</span>
+                            </button>
+                        <% end %>
                     </div>
                 </div>
             </div>

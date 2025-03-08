@@ -27,5 +27,8 @@
       <%= yield %>
     </div>
     <%= render "layouts/login_modal" %>
+    <% if current_user %>
+      <%= render "layouts/create_community_modal", community: @community %>
+    <% end %>
   </body>
 </html>
