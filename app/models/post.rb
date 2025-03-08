@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   # include Visible
 
+  belongs_to :community
+
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true

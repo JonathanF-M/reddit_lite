@@ -1,11 +1,17 @@
-<h1>Posts</h1>
-
-Welcome!
-
-<ul>
+<div class="list-group">
   <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post%>
-    </li>
+      <%= link_to post, class: "list-group-item list-group-item-action" do %>
+        <div class="d-flex w-100 justify-content-between">
+          <h2 class="mb-1 fw-semibold fs-5">
+            <%= post.title %>
+          </h2>
+          <small class="text-body-secondary">
+            <%= "#{time_ago_in_words(post.created_at)} ago" %>
+          </small>
+        </div>
+        <p class="mb-1 fs-6">
+          <%= post.body %>
+        </p>
+      <% end %>
   <% end %>
-</ul>
+</div>
