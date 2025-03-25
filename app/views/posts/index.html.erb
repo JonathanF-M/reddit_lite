@@ -1,17 +1,28 @@
 <div class="list-group">
   <% @posts.each do |post| %>
       <%= link_to post, class: "list-group-item list-group-item-action" do %>
+        <div class="postSource">
+          <span class="fw-semibold text-secondary-emphasis">
+            <% if post.community.present? %>
+              <%= "r/#{post.community.community_name}" %>
+            <% else %>
+              <%= "u/#{post.user.username}" %>
+            <% end %>
+          </span>
+          <i class="bi bi-dot"></i>
+          <span class="text-body-secondary">
+            <%= "#{time_ago_in_words(post.created_at)} ago" %>
+          </span>
+          <i class="bi bi-dot"></i>
+        </div>
         <div class="d-flex w-100 justify-content-between">
-          <h2 class="mb-1 fw-semibold fs-5">
+          <h2 class="mb-1 fw-semibold fs-6">
             <%= post.title %>
           </h2>
-          <small class="text-body-secondary">
-            <%= "#{time_ago_in_words(post.created_at)} ago" %>
-          </small>
         </div>
-        <p class="mb-1 fs-6">
+        <small>
           <%= post.body %>
-        </p>
+        </small>
       <% end %>
   <% end %>
 </div>
