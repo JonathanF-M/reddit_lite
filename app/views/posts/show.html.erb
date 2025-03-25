@@ -1,6 +1,29 @@
-<h1><%= @post.title %></h1>
+<div class="mx-3 my-4">
+    <div class="postSource">
+        <span class="fw-semibold text-secondary-emphasis">
+            <% if @post.community.present? %>
+                <%= "r/#{@post.community.community_name}" %>
+            <% else %>
+                <%= "u/#{@post.user.username}" %>
+            <% end %>
+        </span>
+        <i class="bi bi-dot"></i>
+        <span class="text-body-secondary">
+            <%= "#{time_ago_in_words(@post.created_at)} ago" %>
+        </span>
+    </div>
+    <div class="postSource fw-normal">
+        <span>
+            <%= "#{@post.user.username}" %>
+        </span>
+    </div>
+    <h1 class="fw-semibold fs-5">
+        <%= @post.title %>
+    </h1>
 
-<p><%= @post.body %></p>
+    <%= simple_format(@post.body, class:"userText") %>
+</div>
+
 
 <ul>
     <li><%= link_to "Edit", edit_post_path(@post) %></li>
