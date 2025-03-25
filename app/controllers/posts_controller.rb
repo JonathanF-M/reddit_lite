@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy ]
   def index
-    @posts = Post.all.includes(:community)
+    @posts = Post.all.includes(:community).includes(:user)
   end
 
   def show
@@ -45,6 +45,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body, :status)
+      params.require(:post).permit(:title, :body, :status, :community_id)
     end
 end
