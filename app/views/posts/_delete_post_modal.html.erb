@@ -1,0 +1,15 @@
+<div class="modal" id="deletePostModal" tabindex="-1" aria-labelledby="deletePostModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header text-center border-0">
+        <h1 class="modal-title fs-5 fw-bold w-100" id="exampleModalLabel">Delete post?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span>Once your delete this post, it can't be restored.</span>
+        <%= button_to "Yes, Delete", post, method: :delete, class: "btn btn-danger w-100 rounded-5 fw-semibold" %>
+        <button type="button" class="btn btn-light w-100 rounded-5 fw-semibold" data-bs-dismiss="modal" aria-label="Close">Go Back</button>
+      </div>
+    </div>
+  </div>
+</div>
