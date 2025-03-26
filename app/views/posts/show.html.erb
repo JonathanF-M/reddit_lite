@@ -1,16 +1,21 @@
 <div class="mx-3 my-4">
     <div class="d-flex justify-content-between">
-        <div class="postSource">
-            <span class="fw-semibold text-secondary-emphasis">
-                <% if @post.community.present? %>
-                    <%= "r/#{@post.community.community_name}" %>
-                <% else %>
-                    <%= "u/#{@post.user.username}" %>
-                <% end %>
-            </span>
-            <i class="bi bi-dot"></i>
-            <span class="text-body-secondary">
-                <%= "#{time_ago_in_words(@post.created_at)} ago" %>
+        <div class="postSource d-flex flex-column">
+            <div>
+                <span class="fw-bold text-secondary-emphasis">
+                    <% if @post.community.present? %>
+                        <%= "r/#{@post.community.community_name}" %>
+                    <% else %>
+                        <%= "u/#{@post.user.username}" %>
+                    <% end %>
+                </span>
+                <i class="bi bi-dot"></i>
+                <span class="text-body-secondary">
+                    <%= "#{time_ago_in_words(@post.created_at)} ago" %>
+                </span>
+            </div>
+            <span class="fw-normal">
+                <%= "#{@post.user.username}" %>
             </span>
         </div>
         <% if current_user == @post.user %>
@@ -36,11 +41,6 @@
         <% end %>
     </div>
 
-    <div class="postSource fw-normal">
-        <span>
-            <%= "#{@post.user.username}" %>
-        </span>
-    </div>
     <h1 class="fw-semibold fs-5">
         <%= @post.title %>
     </h1>
