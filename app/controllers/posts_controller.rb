@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy ]
   def index
-    @posts = Post.all.includes(:community).includes(:user)
+    @posts = Post.all.includes(:community, :user, :comments, :votes)
   end
 
   def show

@@ -48,6 +48,9 @@
     <%= simple_format(@post.body, class:"userText") %>
 </div>
 
+<div class="mx-3 mb-3">
+    <%= render "layouts/counts", votes: @post.votes, comments: @post.comments %>
+</div>
 <%= render "comments/form", post: @post if current_user %>
 <%= render @post.comments %>
 
