@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_07_191458) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_26_184221) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,9 +81,21 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_07_191458) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "votable_type", null: false
+    t.bigint "votable_id", null: false
+    t.integer "vote_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_votes_on_user_id"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable"
+  end
+
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "communities", "users"
   add_foreign_key "posts", "communities"
   add_foreign_key "posts", "users"
+  add_foreign_key "votes", "users"
 end
