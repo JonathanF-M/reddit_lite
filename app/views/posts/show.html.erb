@@ -48,7 +48,6 @@
     <%= simple_format(@post.body, class:"userText") %>
 </div>
 
-<%#= render "comments/form", post: @post %>
-<% if current_user == @post.user%>
-    <%= render "delete_post_modal", post: @post %>
-<% end %>
+<%= render "comments/form", post: @post if current_user %>
+
+<%= render "delete_post_modal", post: @post if current_user == @post.user%>

@@ -1,21 +1,8 @@
-<%= form_with model: [ post, post.comments.build ] do |form| %>
-    <p>
-        <%= form.label :commenter %>
-        <%= form.text_field :commenter %>
-    </p>
-    <p>
-        <%= form.label :body %>
-        <%= form.text_area :body %>
-    </p>
-    <!-- 
-        The selector is not broken out into a partial because the elements are differnt
-        and the default value is different, because comments aren't edited
-    -->
-    <p>
-        <%= form.label :status %><br>
-        <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
+<%= form_with model: [ post, post.comments.build ], html: {class: "m-3 border rounded-4"} do |form| %>
+    <div>
+        <%= form.text_area :body, autofocus: true, class: "form-control rounded-4 border-0 mb-3 fs-6 shadow-none", placeholder: "Add a comment" %>
+    </div>
+    <div class="d-flex justify-content-end">
+        <%= form.submit "Comment", class: "btn btn-sm btn-success rounded-5" %>
+    </div>
 <% end %>
