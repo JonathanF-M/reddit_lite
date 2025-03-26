@@ -49,5 +49,6 @@
 </div>
 
 <%= render "comments/form", post: @post if current_user %>
+<%= render @post.comments %>
 
 <%= render "delete_post_modal", post: @post if current_user == @post.user%>

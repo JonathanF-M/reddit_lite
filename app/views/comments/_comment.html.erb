@@ -1,18 +1,14 @@
-<% unless comment.archived? %>
-    <p>
-        <strong>Commenter:</strong>
-        <%= comment.commenter %>
-    </p>
-
-    <p>
-        <strong>Comment:</strong>
-        <%= comment.body %>
-    </p>
-
-    <p>
-        <%= link_to "Destroy Comment", [comment.post, comment], data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-        } %>
-    </p>
-<% end %>
+<div class="mx-4">
+    <div class="postSource mb-2">
+        <span class="fw-bolder text-secondary-emphasis">
+            <%= comment.user.username %>
+        </span>
+        <i class="bi bi-dot"></i>
+        <span class="text-body-secondary">
+            <%= "#{time_ago_in_words(comment.created_at)} ago" %>
+        </span>
+    </div>
+    <div class="ms-2">
+        <%= simple_format(comment.body, class:"userText") %>
+    </div>
+</div>
