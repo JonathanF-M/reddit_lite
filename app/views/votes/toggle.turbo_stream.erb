@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "vote-count-#{@votable.class.name}-#{@votable.id}" do %>
+  <%= render partial: "layouts/vote_count", locals: { votable: @votable } %>
+<% end %>
