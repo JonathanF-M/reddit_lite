@@ -21,3 +21,9 @@
 .userText{
     font-size: .90rem;
 }
+
+.no-hover:hover {
+    background-color: var(--bs-secondary) !important;
+    border-color: var(--bs-secondary) !important;
+    color: var(--bs-white) !important;
+  }
