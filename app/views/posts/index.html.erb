@@ -23,7 +23,7 @@
         <small>
           <%= post.body %>
         </small>
-        <%= render "layouts/counts", votes: post.votes, comments: post.comments %>
+        <%= render "layouts/counts", post: post, votes: post.votes, comments: post.comments %>
       <% end %>
   <% end %>
 </div>

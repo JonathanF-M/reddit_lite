@@ -9,4 +9,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 10 }
+
+  def vote_score
+    votes.sum(:vote_type)
+  end
 end
