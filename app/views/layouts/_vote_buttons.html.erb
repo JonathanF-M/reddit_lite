@@ -1,0 +1,10 @@
+<% color = votes_color(post, current_user) %>
+<div id="vote-buttons-post-<%= post.id %>" class="btn btn-sm btn-secondary rounded-5 no-hover p-0 <%= color%>">
+  <%= button_to toggle_vote_path(votable_type: "Post", votable_id: post.id, vote_type: 1), method: :post, data: { turbo_stream: true }, form: { class: "d-inline" }, class: "btn btn-sm btn-secondary rounded-5 #{color}" do %>
+    <i class="bi bi-arrow-up"></i>
+  <% end %>
+  <%= post.vote_score %>
+  <%= button_to toggle_vote_path(votable_type: "Post", votable_id: post.id, vote_type: -1), method: :post, data: { turbo_stream: true }, form: { class: "d-inline" }, class: "btn btn-sm btn-secondary rounded-5 #{color}" do %>
+    <i class="bi bi-arrow-down"></i>
+  <% end %>
+</div>
