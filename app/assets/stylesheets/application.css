@@ -1,3 +1,7 @@
+/*
+ *= require_self
+ *= require_tree .
+*/
 .offcanvas-body * .list-group-item-action, .accordion-item {
     border: 0 !important;
 }
