@@ -1,24 +1,19 @@
-# README
+# Gemmit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gemmit is a Reddit-inspired forum app built with Ruby on Rails, Hotwire, and Bootstrap. Users can post content, vote, and participate in threaded discussions across different communities.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- Create and browse posts by community
+- Upvote and downvote posts and comments
+- Real-time vote updates using Hotwire
+- Responsive design powered by Bootstrap
+- Authentication via Devise
+- Database-backed voting and comment system
 
-* System dependencies
+## Tech Stack
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby on Rails 7  
+- Hotwire (Turbo + Stimulus)  
+- Bootstrap 5  
+- PostgreSQL 
